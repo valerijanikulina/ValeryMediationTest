@@ -21,6 +21,7 @@ public class Mediation : MonoBehaviour
     IRewardedAd rewardedAd;
     public string rewardedAdUnitId = "Rewarded_Android";
     public GameObject rewardedUI;
+    public GameObject noRewardUI;
     public Text rewardText;
     int reward;
 
@@ -31,6 +32,7 @@ public class Mediation : MonoBehaviour
         rewardedLoadButton.SetActive(false);
         rewardedShowButton.SetActive(false);
         rewardedUI.SetActive(false);
+        noRewardUI.SetActive(false);
         reward = 0;
         rewardText.text = reward.ToString();
     }
@@ -169,6 +171,7 @@ public class Mediation : MonoBehaviour
     void RewardedAdClosed(object sender, EventArgs e)
     {
         Debug.Log("Rewarded Ad has closed");
+        noRewardUI.SetActive(true);
     }
 
     void RewardedAdClicked(object sender, EventArgs e)
@@ -189,6 +192,7 @@ public class Mediation : MonoBehaviour
 
     void RewardedUserRewarded(object sender, RewardEventArgs e)
     {
+        noRewardUI.SetActive(false);
         rewardedUI.SetActive(true);
         Debug.Log("Received reward of 10");
         AddConcurrency();

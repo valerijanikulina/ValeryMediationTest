@@ -5,6 +5,7 @@ using UnityEngine;
 public class MainScene : MonoBehaviour
 {
     public GameObject rewardedScreen;
+    public GameObject noRewardScreen;
 
     void Start()
     {
@@ -15,5 +16,10 @@ public class MainScene : MonoBehaviour
     public void OnCloseRewardedScreenClicked()
     {
         rewardedScreen.SetActive(false);
+    }
+
+    public void OnCloseNoRewardScreenClicked()
+    {
+        noRewardScreen.SetActive(false);
     }
 }
